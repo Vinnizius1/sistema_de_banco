@@ -9,9 +9,22 @@ class Conta {
   }
   // ações
   depositar(valor) {
-    if (valor > 0 && isNaN(valor)) this.saldo += valor;
-    console.log(`Depósito de R$${valor} realizado!
+    if (valor > 0) {
+      this.saldo += valor;
+      console.log(`Depósito de R$${valor} realizado!\n
 O seu novo saldo é de R$${this.saldo}.`);
+    } else {
+      const depositarNovamente = prompt(
+        `Valor menor que 0 ou caractere inválido. Deseja tentar novamente? (s/n): `
+      ).toLowerCase();
+      if (depositarNovamente === "s") {
+        valor = parseFloat(prompt(`Digite um novo valor maior que 0: `));
+
+        this.depositar(valor); // chama recursivamente para tentar novamente
+      } else {
+        console.log("\nEncerrando.");
+      }
+    }
   }
 
   sacar(valor) {
@@ -21,10 +34,10 @@ O seu novo saldo é de R$${this.saldo}.`);
 \nNovo saldo: R$${this.saldo}`);
     } else {
       console.log(`Saldo insuficiente para esse saque ou caractere inválido.`);
-      const continuar = prompt(
+      const sacarNovamente = prompt(
         `Deseja tentar sacar novamente? (s/n): `
       ).toLowerCase();
-      if (continuar === "s") {
+      if (sacarNovamente === "s") {
         valor = parseFloat(
           prompt(
             `Digite um novo valor menor que seu saldo atual de R$ ${this.saldo}: `
