@@ -19,7 +19,6 @@ O seu novo saldo é de R$${this.saldo}.`);
       ).toLowerCase();
       if (depositarNovamente === "s") {
         valor = parseFloat(prompt(`Digite um novo valor maior que 0: `));
-
         this.depositar(valor); // chama recursivamente para tentar novamente
       } else {
         console.log("\nEncerrando.");
