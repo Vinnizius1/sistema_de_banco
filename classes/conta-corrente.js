@@ -7,9 +7,7 @@ class ContaCorrente extends Conta {
   }
 
   aplicarJuros() {
-    console.log(this.saldo, this.juros);
     this.saldo += this.saldo * this.juros;
-    console.log(this.saldo);
     console.log(
       `Juros de R$${this.juros} aplicados. Saldo atual: R$${this.saldo}`
     );
