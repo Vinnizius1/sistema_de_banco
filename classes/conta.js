@@ -2,12 +2,12 @@ const prompt = require("prompt-sync")({ sigint: true });
 
 /* Classe Base */
 class Conta {
-  // atributos
+  // Atributos
   constructor(titular, saldo) {
     this.titular = titular;
     this.saldo = saldo;
   }
-  // ações
+  // Ações
   depositar(valor) {
     if (valor > 0) {
       this.saldo += valor;
@@ -50,7 +50,9 @@ O seu novo saldo é de R$${this.saldo}.`);
   }
 
   verSaldo() {
-    console.log(`\nSaldo atual: R$${this.saldo}.`);
+    console.log(
+      `\nSaldo atual da conta do titular "${this.titular}": R$${this.saldo}.`
+    );
   }
 }
 
